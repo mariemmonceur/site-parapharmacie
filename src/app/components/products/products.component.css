@@ -1,0 +1,102 @@
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  justify-content: center;
+  margin: 0px;
+  height: 80px;
+  background-color: rgb(255, 207, 96);
+}
+.category-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: large;
+  font-weight: 500;
+  margin: 20px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.category-link:hover {
+  background-color: #f0f0f0;
+  color: #0056b3;
+  cursor: pointer;
+}
+.conteneur {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  gap:30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.box {
+  width: 100ppx;
+  background-color: rgba(160, 240, 188, 0.1);
+  text-align: center;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(37, 215, 96, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+.box:hover {
+  transform: scale(1.05); /* Effet de zoom au survol */
+  box-shadow: 0 8px 16px rgba(37, 215, 96, 0.2); /* Augmenter l'ombre au survol */
+}
+img {
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Corrigé : ajout d'une bordure solide */
+  margin: 10px;
+  height: 300px;
+  width: 280px;
+  background-color: #ffffff;
+  border-radius: 8px; /* Arrondis similaires à la box */
+  margin-bottom: 10px; /* Ajouter de l'espacement sous l'image */
+}
+
+p {
+  margin: 4px;
+  padding: 0;
+  font-size: 14px; /* Taille adaptée pour les descriptions */
+  text-align: center; /* Centrer le texte */
+}
+
+img:hover {
+  opacity: 0.7; /* Réduction d'opacité subtile au survol */
+}
+
+.search-container {
+  margin-top: 5px;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.search-input {
+  padding: 8px 12px;
+  width:400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Suppression de "opacity: 0.5px;" car ce n'est pas une valeur valide */
+@media (max-width: 768px) {
+  .conteneur {
+      grid-template-columns: repeat(2, 1fr); /* Passe à 2 colonnes */
+  }
+}
+
+@media (max-width: 480px) {
+  .conteneur {
+      grid-template-columns: 1fr; /* Passe à 1 colonne */
+  }
+}
+.flexx{
+  display:flex ;
+
+  
+}

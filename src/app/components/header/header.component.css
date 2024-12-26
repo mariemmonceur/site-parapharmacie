@@ -1,0 +1,27 @@
+.flex{
+    display: flex;
+    justify-content: center;  /* Centre tous les éléments horizontalement */
+    align-items: center;      /* Centre tous les éléments verticalement */
+    margin:0px;
+    flex-wrap: wrap;
+    padding: 0px;
+    height: 50px;
+    gap:600px;
+  
+    background: #06ba5a;
+  }
+
+  p{
+    color: rgb(255, 255, 255);
+    margin-bottom: 0px;
+    padding-bottom: px;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+
+    .flex i {
+        font-size: 40px; /* Taille de l'icône */
+        color: white;    /* Couleur de l'icône */
+      }
+      

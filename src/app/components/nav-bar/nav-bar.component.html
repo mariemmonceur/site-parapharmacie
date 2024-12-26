@@ -1,0 +1,33 @@
+<nav>
+  <app-header></app-header>
+
+  <!-- Header -->
+  <div class="header d-flex align-items-center  justify-content-between">
+    <!-- Logo -->
+    <div routerLink="/" class="logo-container d-flex align-items-center">
+      <img class="img-logo"
+        src="https://pharma-shop.tn/img/logo.png" 
+        alt="Logo" 
+      />
+    </div>
+    <!-- Products Link -->
+   
+
+   
+    <div class="nav-links d-flex align-items-center">
+
+      <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+    <a class="nav-link d-flex align-items-center" href="/login">
+      <i class="bi bi-person"></i> Connexion
+    </a>
+
+
+    <!-- Panier avec badge -->
+    <a class="nav-link d-flex align-items-center panier-container" routerLinkActive="active" routerLink="/AddToCart">
+      <i class="bi bi-basket panier-icon"></i>
+      <span class="badge badge-primary">{{ cartCount }}</span>
+      <span class="panier-text">Panier</span>
+    </a>
+    </div>
+  </div>
+</nav>

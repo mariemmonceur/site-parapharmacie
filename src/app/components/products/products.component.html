@@ -1,0 +1,118 @@
+<div>
+  <div class="categories-container">
+    <a *ngFor="let category of categories"
+       (click)="onSelectCategory(category)" 
+       href="#" class="category-link">
+      {{ category }}
+    </a>
+    <div class="search-container">
+      <input
+        type="text"
+        class="form-control search-input"
+        placeholder="chercher un produit"
+        [(ngModel)]="searchTerm"
+        (input)="SearchProduct(searchTerm)"
+      />
+    </div>
+  </div>
+
+  <app-carousel></app-carousel>
+  <div class="aa">
+  <div>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light mb-3 align-items-center navbar-container">
+      <ul class="navbar-nav nav-buttons">
+        <li class="nav-item">
+          <button (click)="onGetAllProducts()" class="btn nav-btn">Tous les produits</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="onGetSelectedProducts()" class="btn nav-btn">Favoris</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="onGetAvailableProducts()" class="btn nav-btn">Produits disponibles</button>
+        </li>
+      </ul>
+    </nav>
+
+    <ng-container class="box" *ngIf="filteredProducts$ | async as result">
+      <ng-container [ngSwitch]="result.dataState">
+        <!-- Loading State -->
+        <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+          <div class="alert alert-info text-center">Chargement...</div>
+        </ng-container>
+
+        <!-- Error State -->
+        <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+          <div class="alert alert-danger text-center">
+            {{ result.errorMessage }}
+          </div>
+        </ng-container>
+
+        <!-- Loaded State -->
+        <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="text-center mb-3">Produits</h3>
+
+                <div class="conteneur">
+                  <div class="box " *ngFor="let p of result.data">
+                    <div >
+                      <img
+                        [src]="p.imageUrl"
+                        alt="{{ p.name }}"
+                        
+                      />
+                      <div >
+                        <h5 class="card-title text-truncate">{{ p.name }}</h5>
+                        <p class="card-text">
+                          <strong>Prix:</strong> {{ p.price }} dt<br />
+                          <strong>quantité disponible:</strong> {{ p.quantity }} <br />
+                          <strong>Quantité  :</strong>
+                          <input  style="margin-left:10px ; width: 40px; border-radius: 20%;" type="number" [(ngModel)]="p.selectedQuantity" [min]="1" [max]="p.quantity"  />
+
+                          <br />
+                          <strong>Catégorie:</strong> {{ p.category }} <br />
+                          <strong>Disponible:</strong> {{ p.available ? 'Oui' : 'Non' }}
+                        </p>
+                        
+                      </div>
+                      <div class="flexx">
+                        <!-- Bouton Ajouter au panier -->
+                        <button
+                        class="btn btn-outline-success"
+                          (click)="onAddToCart(p)"
+                        >
+                        <i class="bi bi-basket panier-icon"> Ajouter au panier </i> <!-- Icône de panier -->
+                          
+                        </button>
+                      
+                        <!-- Bouton Ajouter aux favoris / Retirer des favoris -->
+                        <button
+                        class="btn btn-outline-warning"
+                          [ngClass]="{
+                            'btn-souhait': p.selected,
+                            'btn-outline-souhait': !p.selected
+                          }"
+                          (click)="onToggleSelected(p)"
+                        >
+                          <i class="lni" [ngClass]="p.selected ? 'lni-heart-filled' : 'lni-heart'"></i> <!-- Icône cœur dynamique -->
+                          <span class="ml-2">
+                            {{ p.selected ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+                          </span>
+                        </button>
+                      </div>
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+</div>

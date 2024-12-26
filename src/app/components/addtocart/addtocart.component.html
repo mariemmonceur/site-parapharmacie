@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h3 class="mb-0">mon panier</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-hover text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th>id</th>
+            <th>Image</th>
+            <th>nom</th>
+            <th>prix</th>
+            <th>quantité</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of cartItems">
+            <td>{{ product.id }}</td>
+            <td>
+              <img
+                [src]="product.imageUrl"
+                alt="{{ product.name }}"
+                class="img-fluid"
+                style="height: 50px; width: 50px; object-fit: cover;"
+              />
+            </td>
+            <td>{{ product.name }}</td>
+            <td>${{ product.price }}</td>
+            <td>
+              <div class="d-flex justify-content-center align-items-center">
+                <button
+                class="btn btn-sm btn-outline-secondary mr-2"
+                (click)="updateQuantity(product, -1)"
+                [disabled]="product.selectedQuantity === undefined || product.selectedQuantity <= 1"
+              >
+                -
+              </button>
+              
+                <span class="font-weight-bold">{{ product.selectedQuantity }}</span>
+                <button
+                  class="btn btn-sm btn-outline-secondary ml-2"
+                  (click)="updateQuantity(product, 1)"
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td>${{ product.price * (product.selectedQuantity || 1) }}</td>
+            <td>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="removeFromCart(product)"
+              >
+                supprimer
+              </button>
+            </td> <!-- Corrected the closing tag for the <td> here -->
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Affichage du total -->
+      <div class="text-right mt-4">
+        <h4 class="font-weight-bold">prix total: {{ totalPrice }} dt</h4>
+      </div>
+
+      <!-- Message si le panier est vide -->
+      <div *ngIf="cartItems.length === 0" class="alert alert-info text-center mt-4">
+       panier est vide!
+      </div>
+
+      <!-- Bouton Confirmer l'achat -->
+      <div class="text-center mt-4" *ngIf="cartItems.length > 0">
+        <button class="btn btn-success btn-lg" (click)="confirmPurchase()">
+          confirmer l'achat 
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

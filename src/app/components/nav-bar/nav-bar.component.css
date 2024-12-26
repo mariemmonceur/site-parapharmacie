@@ -1,0 +1,150 @@
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px; /* Réduit la hauteur du header */
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  height: 50px; /* Réduit la hauteur globale */
+}
+
+/* Logo */
+.img-logo {
+  height: 30px;
+  margin-right: 8px;
+}
+
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap:50px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: larger;
+}
+
+.nav-link:hover {
+  color: #0ee070;
+  
+}
+
+/* Panier */
+.panier-container {
+  position: relative;
+}
+
+.panier-icon {
+  font-size: larger;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+}
+
+.panier-text {
+  margin-left: 5px;
+  font-size: larger;
+}
+
+
+
+
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;  /* Placer les éléments à gauche et à droite */
+  align-items: center;      /* Centre tous les éléments verticalement */
+  margin: 0px;              /* Redéfini la marge */
+  flex-wrap: wrap;
+  padding: 20px;
+  height: 90px;
+  gap: 30px;
+  background: #fdf8f8;
+  font-weight:bold ;
+  font-size: larger;
+}
+
+.header a {
+  text-decoration: none;  /* Supprime le soulignement pour tous les liens dans .header */
+}
+.header a:hover{
+  color: #0ee070;
+}
+.header a.active{
+  color: #0ee070;
+
+}
+
+.left-aligned {
+  display: flex;
+  align-items: center;
+}
+
+.img-logo {
+  height: 60px;
+  width:300px; 
+  margin-left: 50px;
+  
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: large;
+}
+/* Style du conteneur principal pour le panier */
+.panier-container {
+  position: relative;       /* Position relative pour la pastille */
+  display: flex;            /* Aligne les éléments horizontalement */
+  align-items: center;      /* Centre verticalement */
+  gap: 8px;                 /* Espacement entre les éléments */
+  color: black;             /* Couleur par défaut */
+  text-decoration: none;    /* Enlève le soulignement du lien */
+}
+
+/* Style de l'icône du panier */
+.panier-icon {
+  font-size: 30px;          /* Taille de l'icône */
+  color: black;             /* Couleur de l'icône */
+}
+
+/* Style de la pastille */
+.panier-container .badge {
+  position: absolute;
+  top: -5px;                /* Décale la pastille vers le haut */
+  left: 15px;               /* Décale la pastille à droite */
+  background-color: red;    /* Couleur rouge */
+  color: white;             /* Couleur du texte */
+  font-size: 14px;          /* Taille du texte */
+  font-weight: bold;        /* Texte en gras */
+  border-radius: 50%;       /* Rend la pastille circulaire */
+  padding: 5px 8px;         /* Espacement intérieur */
+  min-width: 20px;          /* Taille minimale */
+  text-align: center;       /* Centre le texte */
+}
+
+/* Style du texte "Panier" */
+.panier-container .text {
+  font-size: 18px;          /* Taille du texte */
+  color: black;             /* Couleur du texte */
+  font-weight: normal;      /* Texte normal */
+}
+
+
